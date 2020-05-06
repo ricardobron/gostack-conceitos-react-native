@@ -64,9 +64,7 @@ describe("Likes", () => {
     fireEvent.press(getByTestId(`like-button-${repositoryId}`));
 
     await actWait();
-
-    expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent("1 curtida");
-
+    
     apiMock
       .onPost(`repositories/${repositoryId}/like`)
       .reply(200, {
